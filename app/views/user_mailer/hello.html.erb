@@ -1,3 +1,17 @@
-Hello <%= @user.name %>
-
-Go to the website: <%= root_url %>
+  <p>
+    Hello <%= @user.name %>,
+  </p>
+  <p style="margin: 0; margin-bottom: 24px">
+    Go to the website by clicking the button below.
+  </p>
+  <div style="line-height: 100%">
+    <a href="<%= root_url %>" class="hover-bg-indigo-500" style="text-decoration: none; display: inline-block; border-radius: 4px; background-color: #4338ca; padding-top: 14px; padding-bottom: 14px; padding-left: 16px; padding-right: 16px; text-align: center; font-size: 16px; font-weight: 600; color: #fff">
+      <!--[if mso]>
+        <i style="mso-text-raise: 30px; letter-spacing: 24px">&#8202;</i>
+      <![endif]-->
+      <span style="mso-text-raise: 16px">Click this &rarr;</span>
+      <!--[if mso]>
+        <i style="letter-spacing: 24px">&#8202;</i>
+      <![endif]-->
+    </a>
+  </div>
