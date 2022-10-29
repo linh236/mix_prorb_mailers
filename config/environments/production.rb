@@ -72,7 +72,7 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
 
-  # Don't log any deprecations.
+  # Don"t log any deprecations.
   config.active_support.report_deprecations = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
@@ -90,4 +90,21 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_options = {
+    "X-PM-Message-Stream": "outbound"
+  }
+  config.action_mailer.default_url_options = { host: "yourdomain.com" }
+  config.action_mailer.smtp_settings = {
+    address: "smtp.postmarkapp.com",
+    port: 587,
+    domain: "yourdomain.com",
+    user_name: "",
+    password: "",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    open_timeout: 5,
+    read_timeout: 5
+  }
 end
