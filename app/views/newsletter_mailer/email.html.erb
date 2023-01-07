@@ -1,5 +1,13 @@
-<p>
-  Hi there,
-</p>
+<div class="prose flex-col max-w-none flex w-full">
 
-<%= @email.body %>
+  <h3>You have a new email</h3>
+
+  <div style="color: black; font-size: 20px;">
+    <%= @email.subject %> 
+  </div>
+
+  <div style="color: black; font-size: 18px; margin-top: 12px;">
+    <%= @email.body %> 
+  </div>
+
+</div>

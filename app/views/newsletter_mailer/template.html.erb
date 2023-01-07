@@ -1,14 +1,14 @@
 <div class="prose flex-col max-w-none flex w-full">
 
-  <p>Dear <%= @subscriber.email %>,</p>
+  <p style="color: black">Dear <%= @subscriber.email %>,</p>
   <h3>Have a new <%= @template.name %> for you !</h3>
 
-  <div class="color: black; font-size: 16px;">
+  <div style="color: black; font-size: 16px;">
     <%= @template.body %>
   </div>
 
   <div style="text-align: center; margin-top: 12px;">
-    <%= link_to "View More", templates_url, target: "_blank"%>
+    <%= link_to "View More", templates_url, target: "_blank", style: "color: blue; text-decoration: none;" %>
   </div>
  
 </div>
