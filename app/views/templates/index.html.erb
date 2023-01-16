@@ -6,9 +6,9 @@
   </div>
 
   <div id="preview-pane" class="flex-row flex">
-    <div id="templates" class="flex-none h-[60vh] overflow-auto overflow-y-auto">
+    <div id="templates" class="flex-none h-[65vh] overflow-auto overflow-y-auto">
         <% @templates.each do |template| %>
-          <div class="border-b pr-8 hover:bg-sky-100 hover:pl-2">
+          <div id="template-<%=template.id%>" class="border-b pr-8 hover:bg-sky-100 hover:pl-2">
             <div>
               <%= link_to template.name, template_path(template), data: { turbo_frame: "template-details" }%>
             </div>
@@ -18,7 +18,7 @@
           </div>
           <% end %>
     </div>
-    <div id="template-preview" class="flex-auto border rounded p-8 h-[60vh]">
+    <div id="template-preview" data-controller="template" class="flex-auto border relative overflow-hidden overflow-y-auto rounded p-8 h-[65vh]">
       <%= turbo_frame_tag "template-details" do %>
         THIS IS THE PREVIEW TEMPLATE
       <% end %>

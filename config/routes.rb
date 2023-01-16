@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   root "emails#index"
   resources :emails, only: [:new, :create, :show, :index]
   resources :posts, only: [:index, :new, :create, :show]
-  resources :templates, only: [:new, :create, :show, :index]
+  resources :templates
+  put "use_template/:id", to: "templates#use_template", as: "use_template"
 end

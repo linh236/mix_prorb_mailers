@@ -1,0 +1,7 @@
+<%= turbo_stream.remove "template-#{@template.id}" do %>
+
+<% end %>
+
+<%= turbo_stream.update "template-details" do %>
+  THIS IS THE PREVIEW TEMPLATE
+<% end %>

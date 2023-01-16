@@ -1,9 +1,9 @@
 <div class="prose flex-col max-w-none flex w-full">
-  <h1>New Template</h1>
+  <h1>Edit Template</h1>
   <%= form_with model: @template do |f| %>
     <div class="mb-6 flex gap-2 items-center">
       <%= f.label :header, class: "block text-sm font-medium text-gray-900 dark:text-white" %>
-        <%= f.check_box "header[is_header]" , checked: true,
+        <%= f.check_box "header[is_header]" , checked: @template.header['is_header']=="1" ? true : false,
           class: "block text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
     </div>
@@ -11,27 +11,29 @@
       <div class="mb-6 flex flex-col justify-start items-center">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           for="template_header">Background</label>
-        <%= f.color_field "header[background]" , value: "#808080" ,
+        <%= f.color_field "header[background]" ,
+          value: "#{@template.header['background'].present? ? @template.header['background'] : '#808080'}" ,
           class: "block w-[30px] text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
       </div>
       <div class="mb-6 flex flex-col justify-start items-center">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="template_header">Logo</label>
-        <%= f.check_box "header[logo]", checked: true,
+        <%= f.check_box "header[logo]" , checked: @template.header['logo']=="1" ? true : false,
           class: "block text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
       </div>
       <div class="mb-6 flex flex-col justify-start items-center">
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          for="template_header">Logo text color</label>
-        <%= f.color_field "header[logo_color]" , value: "#ffffff" ,
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="template_header">Logo text
+          color</label>
+        <%= f.color_field "header[logo_color]" ,
+          value: "#{@template.header['logo_color'].present? ? @template.header['logo_color'] : '#ffffff'}" ,
           class: "block w-[30px] text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
       </div>
       <div class="mb-6 flex flex-col justify-start items-center">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="template_header">Avatar
           Author</label>
-        <%= f.check_box "header[avatar_author]", checked: true,
+        <%= f.check_box "header[avatar_author]" , checked: @template.header['avatar_author']=="1" ? true : false,
           class: "block text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
       </div>
@@ -50,7 +52,7 @@
     </div>
     <div class="mb-6 flex gap-2 items-center">
       <%= f.label :footer, class: "block text-sm font-medium text-gray-900 dark:text-white" %>
-        <%= f.check_box "footer[is_footer]" , checked: true,
+        <%= f.check_box "footer[is_footer]" , checked: @template.footer['is_footer']=="1" ? true : false,
           class: "block text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
     </div>
@@ -58,49 +60,52 @@
       <div class="mb-6 flex flex-col justify-start items-center">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           for="template_footer">Background</label>
-        <%= f.color_field "footer[background]" , value: "#808080",
+        <%= f.color_field "footer[background]" ,
+          value: "#{@template.footer['background'].present? ? @template.footer['background'] : '#808080'}" ,
           class: "block w-[30px] text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
       </div>
       <div class="mb-6 flex flex-col justify-start items-center">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           for="template_footer">Facebook</label>
-        <%= f.check_box "footer[facebook]", checked: true,
+        <%= f.check_box "footer[facebook]" , checked: @template.footer['facebook']=="1" ? true : false,
           class: "block text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
       </div>
       <div class="mb-6 flex flex-col justify-start items-center">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           for="template_footer">Instagram</label>
-        <%= f.check_box "footer[instagram]",
+        <%= f.check_box "footer[instagram]" , checked: @template.footer['instagram']=="1" ? true : false,
           class: "block text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
       </div>
       <div class="mb-6 flex flex-col justify-start items-center">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           for="template_footer">Twitter</label>
-        <%= f.check_box "footer[twitter]",
+        <%= f.check_box "footer[twitter]" , checked: @template.footer['twitter']=="1" ? true : false,
           class: "block text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
       </div>
       <div class="mb-6 flex flex-col justify-start items-center">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           for="template_footer">Linkedin</label>
-        <%= f.check_box "footer[linkedin]",
+        <%= f.check_box "footer[linkedin]" , checked: @template.footer['linkedin']=="1" ? true : false,
           class: "block text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           %>
       </div>
     </div>
     <div class="mb-6">
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="template_footer">Address</label>
-      <%= f.text_field "footer[address]" , value: "Bd. Liviu Rebreanu 59, Timisoara 300755, Romania" ,
+      <%= f.text_field "footer[address]" ,
+        value: "#{@template.footer['address'].present? ? @template.footer['address'] : 'Bd. Liviu Rebreanu 59, Timisoara 300755, Romania'}",
         class: "block w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         %>
     </div>
     <div class="mb-6 flex justify-start items-center gap-2">
-      <label class="block text-sm font-medium text-gray-900 dark:text-white"
-        for="template_footer">Address text color</label>
-      <%= f.color_field "footer[address_color]" , value: "#ffffff" ,
+      <label class="block text-sm font-medium text-gray-900 dark:text-white" for="template_footer">Address text
+        color</label>
+      <%= f.color_field "footer[address_color]" ,
+        value: "#{@template.footer['address_color'].present? ? @template.footer['address_color'] : '#ffffff'}" ,
         class: "block w-[30px] text-gray-900 bg-gray-50 rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         %>
     </div>

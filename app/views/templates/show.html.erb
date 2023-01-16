@@ -1,4 +1,6 @@
 <%= turbo_frame_tag "template-details" do %>
-  <h1><%=@template.name%></h1>
-  <p><%= @template.body %></p>
+  <%= render "templates/shared/preview_template" %>
+  <%= link_to "Delete", @template, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "no-underline text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800 fixed bottom-[36px] left-[24%]" %>
+  <%= link_to use_template_text(@template), '#', id: "use_#{@template.id}", data: { action: "click->template#update", template_target: "template", url: use_template_path(@template), template: @template.is_template }, class: "no-underline text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 fixed bottom-[36px] right-[40%]" %>
+  <%= link_to "Edit", edit_template_path(@template), class: "no-underline text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800 fixed bottom-[36px] right-[13%]" %>
 <% end %>

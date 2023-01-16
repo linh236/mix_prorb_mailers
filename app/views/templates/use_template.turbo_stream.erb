@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "use_#{@template.id}" do%>
+  <%= link_to use_template_text(@template), '#', id: "use_#{@template.id}", data: { action: "click->template#update", template_target: "template", url: use_template_path(@template), template: @template.is_template }, class: "no-underline text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 fixed bottom-[36px] right-[40%]" %>
+<% end %>
