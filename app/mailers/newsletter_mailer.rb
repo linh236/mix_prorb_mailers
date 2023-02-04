@@ -1,4 +1,4 @@
-class NewsletterMailer < ApplicationMailer
+class NewsletterMailer < CustomMailer
 
   def email(subscriber, email)
     @subscriber = subscriber

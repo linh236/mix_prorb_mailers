@@ -1,3 +1,9 @@
 <%= turbo_frame_tag "email-details" do %>
-  <%= @email.body %>
+  <% content_for :email do %>
+    <h3><%= @email.body %></h3>
+    <div style="color: black; font-size: 16px;">
+      <%= @email.body %>
+    </div>
+  <% end %>
+  <%= render "templates/shared/preview_template"%>
 <% end %>

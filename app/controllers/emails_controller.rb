@@ -9,6 +9,7 @@ class EmailsController < ApplicationController
 
   def show
     @email = Email.find(params[:id])
+    @template = Template.default_template.first
   end
 
   def create
