@@ -18,7 +18,7 @@
           </div>
           <% end %>
     </div>
-    <div id="email-preview" class="flex-auto border rounded p-8 h-[60vh]">
+    <div id="email-preview" class="flex-auto border rounded p-8 h-[60vh] overflow-auto overflow-y-auto">
       <%= turbo_frame_tag "email-details" do %>
         THIS IS THE PREVIEW
       <% end %>
