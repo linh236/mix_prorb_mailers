@@ -37,7 +37,11 @@
                   <tr>
                     <td class="sm-px-6"
                       style="border-radius: 4px; background-color: #fff; padding: 48px; text-align: left; font-size: 16px; line-height: 24px; color: #334155; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)">
-                      <%= yield %>
+                        <h3>Have a new <%= @tmp.name %> for you !</h3>
+                        <%= yield %>
+                        <div style="color: black; font-size: 16px; margin-top: 12px;">
+                          <%= @tmp.body %>
+                        </div>
                         <table role="separator" style="width: 100%" cellpadding="0" cellspacing="0">
                           <tr>
                             <td style="padding-top: 32px; padding-bottom: 32px">
